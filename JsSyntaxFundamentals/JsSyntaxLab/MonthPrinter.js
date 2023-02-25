@@ -54,4 +54,4 @@ function solve(number) {
     }
 }
 
-solve(-4)
+solve(4)
