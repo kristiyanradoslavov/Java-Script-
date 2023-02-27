@@ -1,6 +1,6 @@
 function cookingNumbers(num, ...args) {
     let commands = args
-    let currentNum = num
+    let currentNum = Number(num)
 
     for (const i of commands) {
 
@@ -30,4 +30,4 @@ function cookingNumbers(num, ...args) {
     }
 }
 
-cookingNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet')
+cookingNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop')
