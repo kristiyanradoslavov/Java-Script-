@@ -1,10 +1,10 @@
-function sort(arr) {
-    let result = arr.sort()
+function sort(names) {
+    let result = [...names].sort((Fname, Sname) => Fname.localeCompare(Sname))
 
-    for (let i = 0; i < result.length; i++) {
-        console.log(`${i + 1}.${result[i]}`)
-    }
+    console.log(result.map((value, index) => `${index + 1}.${value}`).join("\n"))
 }
 
 
 sort(["John", "Bob", "Christina", "Ema", "alpha"])
+
+// sort([3, 4, 5, 6, 2, 4, 5])
