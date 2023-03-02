@@ -6,8 +6,8 @@ function calculatePrice(product, quantity) {
         snacks: 2.00
     }
 
-    let result = prices[product] * quantity
-    return result.toFixed(2)
+    let result = prices[product] * quantity;
+    return result.toFixed(2);
 }
 
-console.log(calculatePrice("coffee", 2))
+console.log(calculatePrice("coffee", 2));
