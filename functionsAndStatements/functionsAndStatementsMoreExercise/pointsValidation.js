@@ -1,4 +1,9 @@
-function coordinateValidation(x1, y1, x2, y2) {
+function coordinateValidation(arr) {
+    let x1 = arr[0]
+    let y1 = arr[1]
+    let x2 = arr[2]
+    let y2 = arr[3]
+
     let FindBetween = Math.sqrt(((x2-x1)**2) + ((y2 -y1)**2))
 
     let findX = Math.sqrt(((0-x1)**2) + ((0 -y1)**2))
@@ -27,7 +32,7 @@ function coordinateValidation(x1, y1, x2, y2) {
 
 }
 
-coordinateValidation(3, 0, 0, 4)
+coordinateValidation([3, 0, 0, 4])
 
 // coordinateValidation(2, 1, 1, 1)
 
