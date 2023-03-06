@@ -19,6 +19,11 @@ function crystal(array) {
             }
         }
 
+        if (array.length > 1){
+            finalThickness = Math.floor(finalThickness);
+            console.log("Transporting and washing");
+        }
+
         console.log(`Finished crystal ${desiredThickness} microns`)
 
 
@@ -29,28 +34,28 @@ function crystal(array) {
         let steps = 0;
 
         if (result / 4 >= desired) {
-            while (result / 4 > desired) {
+            while (result / 4 >= desired) {
                 result /= 4;
                 steps++;
             }
             console.log(`Cut x${steps}`);
 
         } else if (result - result * 0.20 >= desired) {
-            while (result - result * 0.20 > desired) {
+            while (result - result * 0.20 >= desired) {
                 result -= result * 0.20;
                 steps++;
             }
             console.log(`Lap x${steps}`);
 
         } else if (result - 20 >= desired) {
-            while (result - 20 > desired) {
+            while (result - 20 >= desired) {
                 result -= 20;
                 steps++;
             }
             console.log(`Grind x${steps}`);
 
         } else if (result - 2 >= desired || result - 2 === desired - 1) {
-            while (result - 2 === desired - 1 || result - 2 > desired) {
+            while (result - 2 === desired - 1 || result - 2 >= desired) {
                 result -= 2;
                 steps++;
             }
