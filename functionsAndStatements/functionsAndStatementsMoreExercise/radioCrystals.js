@@ -5,18 +5,11 @@ function crystal(array) {
         let finalThickness = currentCrystal;
         console.log(`Processing chunk ${currentCrystal} microns`)
 
-        let cut = 0;
-
 
         while (finalThickness !== desiredThickness) {
 
             finalThickness = process(finalThickness, desiredThickness);
 
-
-            if (finalThickness !== desiredThickness) {
-                finalThickness = Math.floor(finalThickness);
-                console.log("Transporting and washing");
-            }
         }
 
         console.log(`Finished crystal ${desiredThickness} microns`)
@@ -34,6 +27,8 @@ function crystal(array) {
                 steps++;
             }
             console.log(`Cut x${steps}`);
+            result = Math.floor(result);
+            console.log("Transporting and washing");
 
         } else if (result - result * 0.20 >= desired) {
             while (result - result * 0.20 >= desired) {
@@ -41,6 +36,8 @@ function crystal(array) {
                 steps++;
             }
             console.log(`Lap x${steps}`);
+            result = Math.floor(result);
+            console.log("Transporting and washing");
 
         } else if (result - 20 >= desired) {
             while (result - 20 >= desired) {
@@ -48,6 +45,8 @@ function crystal(array) {
                 steps++;
             }
             console.log(`Grind x${steps}`);
+            result = Math.floor(result);
+            console.log("Transporting and washing");
 
         } else if (result - 2 >= desired || result - 2 === desired - 1) {
             while (result - 2 === desired - 1 || result - 2 >= desired) {
@@ -55,6 +54,9 @@ function crystal(array) {
                 steps++;
             }
             console.log(`Etch x${steps}`);
+            result = Math.floor(result);
+            console.log("Transporting and washing");
+
         } else {
             result++;
             console.log("X-ray x1");
@@ -67,5 +69,5 @@ function crystal(array) {
 
 
 crystal(
-    [1375, 50000]
+    [1000, 4000, 8100]
 )
