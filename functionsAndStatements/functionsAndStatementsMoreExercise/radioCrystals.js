@@ -3,7 +3,7 @@ function crystal(array) {
 
     for (const currentCrystal of array) {
         let finalThickness = currentCrystal;
-        console.log(`Processing chunk ${currentCrystal} microns`)
+        console.log(`Processing chunk ${currentCrystal} microns`);
 
 
         while (finalThickness !== desiredThickness) {
@@ -12,8 +12,7 @@ function crystal(array) {
 
         }
 
-        console.log(`Finished crystal ${desiredThickness} microns`)
-
+        console.log(`Finished crystal ${desiredThickness} microns`);
 
     }
 
@@ -62,9 +61,8 @@ function crystal(array) {
             console.log("X-ray x1");
         }
 
-        return result
+        return result;
     }
-
 }
 
 
