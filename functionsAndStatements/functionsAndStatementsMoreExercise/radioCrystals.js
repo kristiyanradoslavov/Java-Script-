@@ -19,11 +19,6 @@ function crystal(array) {
             }
         }
 
-        if (array.length > 1){
-            finalThickness = Math.floor(finalThickness);
-            console.log("Transporting and washing");
-        }
-
         console.log(`Finished crystal ${desiredThickness} microns`)
 
 
