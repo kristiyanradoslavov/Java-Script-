@@ -1,8 +1,8 @@
 function convert (input){
-    let result = JSON.parse(input)
+    let result = JSON.parse(input);
 
     for (const [key, value] of Object.entries(result)){
-        console.log(`${key}: ${value}`)
+        console.log(`${key}: ${value}`);
     }
 
 }
