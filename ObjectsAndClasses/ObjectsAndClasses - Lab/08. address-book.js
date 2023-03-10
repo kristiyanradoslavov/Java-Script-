@@ -10,14 +10,14 @@ function addresses(input) {
     let result = []
 
     for (const [key, value] of Object.entries(addressObject)) {
-        result.push(`${key} -> ${value}`)
+        result.push(`${key} -> ${value}`);
     }
 
     let sortedInput = [...result].sort((a, b) => a.localeCompare(b));
 
 
     for (let i of sortedInput) {
-        console.log(i)
+        console.log(i);
     }
 
 }
