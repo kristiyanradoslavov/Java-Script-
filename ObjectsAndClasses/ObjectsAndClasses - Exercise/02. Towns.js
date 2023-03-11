@@ -13,7 +13,6 @@ function towns(input) {
 
         console.log(result);
     }
-
 }
 
 
