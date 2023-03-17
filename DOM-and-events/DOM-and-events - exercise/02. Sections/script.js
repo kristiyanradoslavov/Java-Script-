@@ -4,6 +4,8 @@ function create(words) {
    for (const currentString of words) {
       let newDiv = document.createElement("div");
       let newParagraph = document.createElement("p");
+      newParagraph.style.display = "none";
+
       newParagraph.textContent = currentString;
       newDiv.appendChild(newParagraph);
 
@@ -13,7 +15,10 @@ function create(words) {
    }
 
    function eventHandler(e) {
-      e.target.style.display = "none"
+      const div = e.currentTarget;
+      const p = div.children[0];
+
+      p.style.display = "block"
    }
 
 }
