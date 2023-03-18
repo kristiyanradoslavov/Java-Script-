@@ -1,5 +1,4 @@
 function lockedProfile() {
-    const allProfiles = Array.from(document.querySelectorAll("#main > div"))
     const buttons = Array.from(document.querySelectorAll(".profile button"));
 
     for (const currentButton of buttons) {
