@@ -14,7 +14,7 @@ function solve() {
     try {
       inputText = JSON.parse(input.value);
     } catch (error) {
-      console.log("The input must be Array of JSON objects!");
+      console.log("The input must be Array of JSON!");
       return;
     }
     for (currentInput of inputText) {
