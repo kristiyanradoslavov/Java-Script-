@@ -19,14 +19,12 @@ function solve() {
       newImg.src = currentInput.img;
       imgCol.appendChild(newImg);
 
-
       //add all other elements//
       let nameCol = document.createElement("td");
       let priceCol = document.createElement("td");
       let decFacCol = document.createElement("td");
 
       // add new paragraphs//
-
       let namePar = document.createElement("p");
       let pricePar = document.createElement("p");
       let decFacColPar = document.createElement("p");
@@ -37,7 +35,6 @@ function solve() {
       decFacColPar.textContent = currentInput.decFactor;
 
       // add the paragraphs in the new elements//
-
       nameCol.appendChild(namePar);
       priceCol.appendChild(pricePar);
       decFacCol.appendChild(decFacColPar);
@@ -54,13 +51,13 @@ function solve() {
       newRow.appendChild(priceCol);
       newRow.appendChild(decFacCol);
       newRow.appendChild(checkCol);
-
       tableBody.appendChild(newRow);
     }
   }
 
   function buyBtnHandler(e) {
     output.textContent = ""
+
     const tableRows = Array.from(document.querySelectorAll(".table > tbody  tr"));
     let boughtFurniture = [];
     let totalPrice = 0;
@@ -71,14 +68,14 @@ function solve() {
       if (currentRow.children[4].lastChild.checked) {
         totalPrice += Number(currentRow.children[2].textContent);
         finalDecorationFac += Number(currentRow.children[3].textContent);
-        boughtFurniture.push(currentRow.children[1].textContent)
+        boughtFurniture.push(currentRow.children[1].textContent);
       }
     }
 
     if (boughtFurniture.length > 0) {
       output.textContent += `Bought furniture: ${boughtFurniture.join(", ")}\n`;
       output.textContent += `Total price: ${totalPrice.toFixed(2)}\n`;
-      output.textContent += `Average decoration factor: ${finalDecorationFac / boughtFurniture.length}`
+      output.textContent += `Average decoration factor: ${finalDecorationFac / boughtFurniture.length}`;
     }
   }
 }
