@@ -4,9 +4,13 @@ function validate() {
     currentEmail.addEventListener("change", eventHandler);
 
     function eventHandler(event) {
-        let pattern = /^([a-z0-9|\.]+)@[a-z]+\.[a-z]+$/;
-        let result = event.target.value;
+        let pattern = /^([a-z|\.]+)@[a-z]+\.[a-z]+$/;
+        let result = event.target;
 
-        
+        if (result.value.match(pattern)){
+            result.style = ""
+        } else{
+            result.add.class("test")
+        }
     }
 }
