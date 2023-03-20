@@ -8,9 +8,9 @@ function validate() {
         let result = event.target;
 
         if (result.value.match(pattern)){
-            result.style = ""
+            result.classList = ""
         } else{
-            result.add.class("test")
+            result.classList.add("error")
         }
     }
 }
