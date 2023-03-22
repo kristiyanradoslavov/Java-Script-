@@ -6,7 +6,7 @@ function loadRepos() {
 	fetch(`${URI}/${currentUsername}/repos`)
 		.then((result) => result.json())
 		.then((res) => {
-			let allChildren = Array.from(currentUl.children)
+			Array.from(currentUl.children)
 				.map((current) => current.remove())
 
 			for (const currentRepo of res) {
