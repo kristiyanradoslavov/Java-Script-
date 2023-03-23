@@ -4,18 +4,21 @@ function loadCommits() {
     const resultUl = document.getElementById("commits");
     const currentURI = "https://api.github.com/repos";
 
-    fetch(`${currentURI}/${nameInput}/${repoName}/commits`)
+    fetch(`${currentURI}/${nameInput}/${repoName}/commitss`)
         .then((result) => result.json())
         .then((data) => {
-            let newList = document.createElement("li");
             for (const currentEl of data) {
-                console.log(currentEl)
-                // let currentName = currentEl.author.name;
-                // let message = currentEl.commits.message;
-                // newList.textContent = `${currentName}:${message}`
+                let newList = document.createElement("li");
+                let currentName = currentEl.commit.author.name;
+                let message = currentEl.commit.message;
+                newList.textContent = `${currentName}:${message}`
+                resultUl.appendChild(newList)
             };
         })
         .catch((error) => {
-            console.error("Ebasi")
+            let newList = document.createElement("li");
+            newList.textContent = `Error: ${error} (Not Found)`;
+            resultUl.appendChild(newList)
+
         })
 }
