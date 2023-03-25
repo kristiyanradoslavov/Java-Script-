@@ -4,7 +4,7 @@ function solve() {
     const resulting = document.querySelector("#info > span");
     const URL = "http://localhost:3030/jsonstore/bus/schedule/";
     let busStop = "depot";
-    let previousStop = ""
+    let previousStop = "";
 
     function depart() {
         fetch(`${URL}${busStop}`)
@@ -14,12 +14,12 @@ function solve() {
                 previousStop = currentName;
                 let nextStop = data.next;
                 busStop = nextStop;
-                resulting.textContent = `Next stop ${currentName}`
+                resulting.textContent = `Next stop ${currentName}`;
                 departBtn.disabled = true;
                 arriveBtn.disabled = false;
             })
             .catch (() => {
-                resulting.textContent = "Error"
+                resulting.textContent = "Error";
                 departBtn.disabled = true;
                 arriveBtn.disabled = true;
             })
@@ -30,15 +30,13 @@ function solve() {
         try {
             departBtn.disabled = false;
             arriveBtn.disabled = true;
-            resulting.textContent = `Arriving at ${previousStop}`
+            resulting.textContent = `Arriving at ${previousStop}`;
         }
         catch (err) {
             resulting.textContent = "Error";
             departBtn.disabled = false;
             arriveBtn.disabled = false;
         }
-
-        
     }
 
     return {
