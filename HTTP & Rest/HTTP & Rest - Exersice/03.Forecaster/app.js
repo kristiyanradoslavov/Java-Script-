@@ -21,19 +21,19 @@ function attachEvents() {
                     threeDayForecast(cityToForecast[0].code);
                     forecastDiv.style.display = "block";
                 } else {
-                   console.log("Error")
+                   console.log("Error");
                 }
 
             })
             .catch((error) => {
-                console.error("Error")
+                console.error("Error");
             })
     }
 
     function dayForecast(code) {
         let previousForecast = document.getElementsByClassName("forecasts");
         if (previousForecast[0]) {
-            currentForecast.removeChild(previousForecast[0])
+            currentForecast.removeChild(previousForecast[0]);
         }
 
         fetch(`${URL_CONDITION}${code}`)
@@ -45,25 +45,25 @@ function attachEvents() {
 
                 let conditionParent = addElements("span", divParent, "condition");
                 addElements("span", conditionParent, "forecast-data", name);
-                addElements("span", conditionParent, "forecast-data", `${forecast.low}°/${forecast.high}°`)
-                addElements("span", conditionParent, "forecast-data", forecast.condition)
+                addElements("span", conditionParent, "forecast-data", `${forecast.low}°/${forecast.high}°`);
+                addElements("span", conditionParent, "forecast-data", forecast.condition);
             })
             .catch((error) => {
-                console.error("Error")
+                console.error("Error");
             })
     }
 
     function threeDayForecast(code) {
         let previousThreeForecast = document.getElementsByClassName("forecast-info");
         if (previousThreeForecast[0]) {
-            upcomingForecast.removeChild(previousThreeForecast[0])
+            upcomingForecast.removeChild(previousThreeForecast[0]);
         }
 
         fetch(`${URL_FORECAST}${code}`)
             .then((thirdFetch) => thirdFetch.json())
             .then((currentD) => {
                 let { forecast, _name } = currentD;
-                let foreCastParent = addElements("div", upcomingForecast, "forecast-info")
+                let foreCastParent = addElements("div", upcomingForecast, "forecast-info");
 
                 for (const currentDay of forecast) {
                     let upcomingParent = addElements("span", foreCastParent, "upcoming");
@@ -96,7 +96,6 @@ function attachEvents() {
             return "☂";
         }
     }
-
 }
 
 attachEvents();
