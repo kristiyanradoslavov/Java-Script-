@@ -28,9 +28,12 @@ function attachEvents() {
         fetch(BASE_URL)
             .then((result) => result.json())
             .then((data) => {
-                for ({author, content} of Object.values(data)) {
-                    textArea.textContent += `${author}: ${content}\n`
+                let result = []
+                for ({ author, content } of Object.values(data)) {
+                    result.push(`${author}: ${content}`);
                 }
+                textArea.textContent = result.join("\n")
+
             })
     }
 }
