@@ -56,12 +56,14 @@ function attachEvents() {
 
     // edit handler function
     function editHandler(e) {
-      bookTitle.value = "";
-      bookAuthor.value = "";
       submitBtn.textContent = "Save";
       formLabel.textContent = "Edit FORM";
 
       let btn = e.currentTarget;
+      let currentTitle = btn.parentNode.parentNode.querySelector(":nth-child(1)");
+      let currentAuthor = btn.parentNode.parentNode.querySelector(":nth-child(2)");
+      bookTitle.value = currentTitle.textContent;
+      bookAuthor.value = currentAuthor.textContent;
       let editContainerId = btn.parentNode.parentNode.id;
       submitBtn.addEventListener("click", saveEditHandler);
       submitBtn.removeEventListener("click", handleAddEvent);
