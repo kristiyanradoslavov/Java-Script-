@@ -12,7 +12,7 @@ function attachEvents() {
         if (event) {
             event.preventDefault();
         }
-        
+
         toDoUl.innerHTML = "";
         fetch(MAIN_URL)
             .then((getResult) => getResult.json())
@@ -42,9 +42,8 @@ function attachEvents() {
 
         fetch(MAIN_URL, httpHeaders)
             .then(() => {
-                inputValue.value = "";
                 loadHandler();
-
+                inputValue.value = "";
             })
     }
 }
