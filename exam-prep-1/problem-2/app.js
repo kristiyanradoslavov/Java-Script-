@@ -35,20 +35,28 @@ function solve() {
       btn.disabled = true;
 
       editBtn.addEventListener("click", () => {
-        // debugger
         previewList.innerHTML = `<h3>Preview</h3>`;
-        console.log(newName.textContent)
         let [_, fName, lName] = newName.textContent.split(" ");
-        firstName.value = fName.textContent;
-        lastName.value = lName.textContent;
-        age.value = newAge.textContent;
-        storyTitle.value = newTitle.textContent;
-        genre.value = newGenre.textContent;
+        firstName.value = fName;
+        lastName.value = lName;
+        let [_rest, ageValue] = newAge.textContent.split(": ");
+        age.value = Number(ageValue);
+        let [_aRest, storyValue] = newTitle.textContent.split(": ")
+        storyTitle.value = storyValue;
+        let [_bRest, genreValue] = newGenre.textContent.split(": ")
+        genre.value = genreValue;
         story.value = newStory.textContent;
         btn.disabled = false;
       });
 
-      // saveBtn.addEventListener("click", saveHandler)
+      saveBtn.addEventListener("click", () => {
+        mainDiv.innerHTML = `<h1>Your scary story is saved!</h1>`;
+      })
+
+      deleteBtn.addEventListener("click", () => {
+        previewList.innerHTML = `<h3>Preview</h3>`;
+        btn.disabled = false;
+      });
     }
   }
 
