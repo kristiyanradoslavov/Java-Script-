@@ -18,14 +18,64 @@ function attachEvents() {
             .then((getResult) => getResult.json())
             .then((getData) => {
                 for (const { name, _id } of Object.values(getData)) {
-                    toDoUl.innerHTML +=
-                        `<li>
-                                <span>${name}</span>
-                                <button>Remove</button>
-                                <button>Edit</button>
-                            </li>
-                            `
+                    let newLi = document.createElement("li");
+                    let newSpan = document.createElement("span");
+                    let newRButton = document.createElement("button");
+                    let newDButton = document.createElement("button");
+                    newSpan.textContent = name;
+                    newRButton.textContent = "Remove";
+                    newDButton.textContent = "Edit";
+                    newLi.id = _id;
+                    newLi.append(newSpan, newRButton, newDButton);
+                    toDoUl.appendChild(newLi);
                 }
+                
+                let removeBtn = Array.from(document.querySelectorAll("#todo-list li :nth-child(2)"));
+                let editBtn = Array.from(document.querySelectorAll("#todo-list li :nth-child(3)"))
+                for (const currentBtn of removeBtn) {
+                    currentBtn.addEventListener("click", removeHandler);
+                }
+
+                for (const currentEditBtn of editBtn) {
+                    currentEditBtn.addEventListener("click", editHandler);
+                }
+
+                function removeHandler() {
+                    let idToRemove = this.parentNode.id;
+                    fetch(`${MAIN_URL}${idToRemove}`, {
+                        method: "DELETE"
+                    })
+                        .then(() => {
+                            loadHandler();
+                        })
+                }
+
+                function editHandler(event) {
+                    let currentBtn = event.target;
+                    currentBtn.textContent = "Submit";
+                    currentBtn.removeEventListener("click", editHandler);
+                    let textEle = currentBtn.parentNode.querySelector(":nth-child(1)");
+                    let newInput = document.createElement("input");
+                    newInput.value = textEle.textContent;
+                    currentBtn.parentNode.replaceChild(newInput, textEle);
+                    currentBtn.addEventListener("click", submitHandler);
+
+                    function submitHandler() {
+                        let idToRemove = this.parentNode.id;
+                        let patchInfo = {
+                            name: `${newInput.value}`
+                        }
+                        let httpHeaders = {
+                            method: "PATCH",
+                            body: JSON.stringify(patchInfo)
+                        }
+                        fetch(`${MAIN_URL}${idToRemove}`, httpHeaders)
+                            .then(() => {
+                                loadHandler();
+                            })
+                    }
+                }
+
             })
     }
 
