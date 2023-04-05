@@ -33,7 +33,7 @@ function solve(information) {
                 if (groceries.includes(item)) {
                     let currentIdx = groceries.indexOf(item);
                     let currentGrocery = groceries.splice(currentIdx, 1);
-                    groceries.unshift(currentGrocery);
+                    groceries.push(currentGrocery);
                 }
 
                 break;
@@ -47,13 +47,10 @@ function solve(information) {
 
 
 solve(
-    (["Milk!Pepper!Salt!Water!Banana",
-    "Urgent Salt",
-    "Unnecessary Grapes",
-    "Correct Pepper Onion",
-    "Rearrange Grapes",
-    "Correct Tomatoes Potatoes",
+    (["Tomatoes!Potatoes!Bread",
+    "Rearrange Bread",
     "Go Shopping!"])
+    
     
 
 )
