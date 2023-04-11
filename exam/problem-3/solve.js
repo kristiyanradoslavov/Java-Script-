@@ -21,7 +21,7 @@ function attachEvents() {
     loadBtn.addEventListener("click", loadHandler);
     addTaskBtn.addEventListener("click", addHandler);
 
-
+    //  load GET request // 
     function loadHandler() {
         allSections["ToDo"].innerHTML = "";
         allSections["InProgress"].innerHTML = "";
@@ -38,7 +38,7 @@ function attachEvents() {
             .catch((error) => errorHandler(error))
     }
 
-
+    // POST request //
     function addHandler(event) {
         event.preventDefault();
         let postBody = {
@@ -55,7 +55,6 @@ function attachEvents() {
         fetch(BASE_URL, httpHeaders)
             // .then((postResult) => postResult.json())
             .then((postData) => {
-                console.log(postData)
                 initTitle.value = "";
                 initDesc.value = "";
                 loadHandler();
@@ -64,6 +63,7 @@ function attachEvents() {
             .catch((error) => errorHandler(error))
     }
 
+    
     function addELement(currentObject) {
         let btnContent = {
             ToDo: "Move to In Progress",
