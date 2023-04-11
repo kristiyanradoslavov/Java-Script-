@@ -22,10 +22,7 @@ function attachEvents() {
     addTaskBtn.addEventListener("click", addHandler);
 
 
-    function loadHandler(event) {
-        if (event) {
-            event.preventDefault();
-        }
+    function loadHandler() {
         allSections["ToDo"].innerHTML = "";
         allSections["InProgress"].innerHTML = "";
         allSections["CodeReview"].innerHTML = "";
@@ -56,7 +53,7 @@ function attachEvents() {
         }
 
         fetch(BASE_URL, httpHeaders)
-            .then((postResult) => postResult.json())
+            // .then((postResult) => postResult.json())
             .then((postData) => {
                 console.log(postData)
                 initTitle.value = "";
