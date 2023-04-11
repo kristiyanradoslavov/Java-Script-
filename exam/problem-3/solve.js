@@ -32,10 +32,10 @@ function attachEvents() {
             .then((getData) => {
                 let dataValues = Object.values(getData);
                 for (const currentObj of dataValues) {
-                    addELement(currentObj)
+                    addELement(currentObj);
                 }
             })
-            .catch((error) => errorHandler(error))
+            .catch((error) => errorHandler(error));
     }
 
     // POST request //
@@ -63,7 +63,7 @@ function attachEvents() {
             .catch((error) => errorHandler(error))
     }
 
-    
+
     function addELement(currentObject) {
         let btnContent = {
             ToDo: "Move to In Progress",
@@ -83,10 +83,10 @@ function attachEvents() {
         newH3.textContent = currentObject.title;
         newP.textContent = currentObject.description;
         newBtn.textContent = btnContent[currentStatus];
-        newLi.append(newH3, newP, newBtn)
+        newLi.append(newH3, newP, newBtn);
 
-        allSections[currentStatus].appendChild(newLi)
-        newBtn.addEventListener("click", moveHandler)
+        allSections[currentStatus].appendChild(newLi);
+        newBtn.addEventListener("click", moveHandler);
 
     }
 
@@ -102,7 +102,7 @@ function attachEvents() {
         } else if (currentSectionId === "code-review-section") {
             newStatus = "Done";
         } else if (currentSectionId === "done-section") {
-            newStatus = "DELETE"
+            newStatus = "DELETE";
         }
 
         if (newStatus === "DELETE") {
@@ -132,7 +132,7 @@ function attachEvents() {
     }
 
     function errorHandler(error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
