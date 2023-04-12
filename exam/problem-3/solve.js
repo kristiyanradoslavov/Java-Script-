@@ -55,10 +55,9 @@ function attachEvents() {
         fetch(BASE_URL, httpHeaders)
             // .then((postResult) => postResult.json())
             .then((postData) => {
+                loadHandler();
                 initTitle.value = "";
                 initDesc.value = "";
-                loadHandler();
-
             })
             .catch((error) => errorHandler(error))
     }
