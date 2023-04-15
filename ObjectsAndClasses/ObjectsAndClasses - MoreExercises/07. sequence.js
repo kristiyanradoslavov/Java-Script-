@@ -1,5 +1,23 @@
 function solve(input) {
-    
+    let transformedElement = [];
+
+    for (const currentEl of input) {
+        transformStr(currentEl)
+    }
+
+    for (const currentElement of transformStr) {
+        
+    }
+
+
+
+    function transformStr(currentString) {
+        let firstRes = currentString.replace("[", "")
+        firstRes = firstRes.replace("]", "")
+        
+        let numbers = firstRes.split(", ").map((currentNum) => Number(currentNum));
+        transformedElement.push(numbers)
+    }
 }
 
 
