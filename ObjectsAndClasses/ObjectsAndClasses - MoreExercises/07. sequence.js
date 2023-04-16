@@ -8,7 +8,6 @@ function solve(input) {
     }
 
     let currentArray = transformedElement.shift();
-    result.push(currentArray)
 
     while (transformedElement.length > 0) {
         for (const array of transformedElement) {
@@ -22,11 +21,11 @@ function solve(input) {
                 }
             }
 
-            if (array.length === controlNumber) {
+            if (array.length === controlNumber && transformedElement.length > 1) {
                 let idx = transformedElement.indexOf(array);
                 transformedElement.splice(idx, 1);
-            } else {
-                result.push(currentArray)
+            } else{
+                result.push(currentArray);
             }
         }
         currentArray = transformedElement.shift();
@@ -58,9 +57,7 @@ function solve(input) {
 
 
 solve(
-    ["[-3, -2, -1, 0, 1, 2, 3, 4]",
-    "[10, 1, -17, 0, 2, 13]",
-    "[4, -3, 3, -2, 2, -1, 1, 0]",
-    "[9, -3, 3, -2, 2, -1, 1, 0]"]
-    
+    ["[7.14, 7.180, 7.339, 80.099]",
+    "[7.339, 80.0990, 7.140000, 7.18]",
+    "[7.339, 7.180, 7.14, 80.099]"]
 )
