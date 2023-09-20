@@ -28,7 +28,7 @@ function solution(group, type, day) {
     if (type === "Students" && group >= 30) {
         finalPrice -= finalPrice * discounts[type];
     } else if (type === "Business" && group >= 100) {
-        finalPrice = prices[type][day] * (group - discounts.type);
+        finalPrice = prices[type][day] * (group - discounts[type]);
     } else if (type == "Regular" && group >= 10 && group <= 20) {
         finalPrice -= finalPrice * discounts[type];
     }
