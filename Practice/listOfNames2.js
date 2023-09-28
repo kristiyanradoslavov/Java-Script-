@@ -1,5 +1,4 @@
 function solution(arr) {
-    let firstRes = [...arr]
     let result = arr.sort((first, second) => first.localeCompare(second))
 
     for (let i = 0; i < result.length; i++) {
