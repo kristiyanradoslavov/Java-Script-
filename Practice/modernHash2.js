@@ -1,20 +1,28 @@
-const { toLower } = require("lodash")
-
 function solution(sentence) {
-    let result = []
+    let sentenceArray = sentence.split(' ');
+    let result = [];
 
-    for (const word of sentence) {
+    for (const word of sentenceArray) {
         if (word[0] === "#" && word.length > 1) {
-            for (const letter of word) {
-                if (toLower(letter).charCodeAt(0) <= 97 && toLower(letter).charCodeAt(0) <= 122 ) {
-                    
+            let invalidWord = false
+            for (let currentLetterIdx = 1; currentLetterIdx < word.length; currentLetterIdx++) {
+                if (word[currentLetterIdx].toLowerCase().charCodeAt(0) < 97 || word[currentLetterIdx].toLowerCase().charCodeAt(0) > 122 ) {
+                    invalidWord = true
+                    break;
                 }
+            }
+            
+            if (!invalidWord) {
+                let currentWord = word.replace('#', '')
+                result.push(currentWord)
             }
         }
     }
+
+    console.log(result.join('\n'));
 }
 
 
 solution(
-    'Nowadays everyone uses # to tag a #special word in #socialMedia'
-)
+    'The symbol # is known #variously in English-speaking #regions as the #number sign'
+    )
